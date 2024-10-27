@@ -141,11 +141,7 @@ function createWindow() {
 
   const startUrl = config.userURL || 'https://getvibe.in' // Use the URL from config or default
 
-  if (is.dev && process.env['ELECTRON_RENDERER_URL']) {
-    mainWindow.loadURL(startUrl) // Load the URL from config
-  } else {
-    mainWindow.loadFile(join(__dirname, '../renderer/index.html'))
-  }
+  mainWindow.loadURL(startUrl) // Load the URL from config
 
   mainWindow.webContents.on('did-finish-load', async () => {
     const observersSetup = `
