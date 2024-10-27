@@ -141,7 +141,11 @@ function createWindow() {
 
   const startUrl = config.userURL || 'https://getvibe.in' // Use the URL from config or default
 
-  mainWindow.loadURL(startUrl) // Load the URL from config
+  if (is.dev) {
+    mainWindow.loadURL(startUrl) // Load the URL from config
+  } else {
+    mainWindow.loadURL(startUrl) // Load the URL from con
+  }
 
   mainWindow.webContents.on('did-finish-load', async () => {
     const observersSetup = `
