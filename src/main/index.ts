@@ -88,13 +88,13 @@ async function setDiscordActivity(songInfo) {
     details: title,
     state: `by ${artist}`,
     largeImageKey: imgSrc,
-    largeImageText: artist,
+    largeImageText: `getvibe.in`,
     startTimestamp,
     endTimestamp,
     buttons: [
       {
         label: 'Listen Together',
-        url: url
+        url: url+"&utm_source=discord&utm_medium=display&utm_campaign=discord_activity"
       }
     ]
   }
@@ -219,7 +219,9 @@ function createWindow() {
   // Listen for URL changes
   mainWindow.webContents.on('did-navigate', (_event, newUrl) => {
     console.log(`Navigated to: ${newUrl}`)
+    if (!newUrl.startsWith("https://getvibe")) return;
     updateConfigURL(newUrl) // Update the config file with the new URL
+    
   })
 }
 
