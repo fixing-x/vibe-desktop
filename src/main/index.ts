@@ -125,7 +125,7 @@ function createWindow() {
     webPreferences: {
       preload: join(__dirname, '../preload/index.js'),
       sandbox: false,
-      nodeIntegration: true,
+      nodeIntegration: false,
       contextIsolation: false
     }
   })
